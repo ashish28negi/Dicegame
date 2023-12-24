@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Rolling Game</title>
+    <style>
+        #dice {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dice Rolling Game</h1>
+    <img id="dice" src="images/dice-1.png" alt="Dice">
+    <p id="resultMessage"></p>
+    <button onclick="rollDice()">Roll Dice</button>
+
+    <script>
+        function rollDice() {
+            // Get a random number between 1 and 6 (representing the faces of a die)
+            const randomNumber = Math.floor(Math.random() * 6) + 1;
+
+            // Update the dice image source based on the random number
+            const diceImage = document.getElementById('dice');
+            diceImage.src = `images/dice-${randomNumber}.png`;
+            diceImage.alt = `Dice ${randomNumber}`;
+
+            // Check if the rolled number is 6 and display a message
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.textContent = (randomNumber === 6) ? "Congratulations !!! You Won! Try again" : "";
+        }
+    </script>
+</body>
+</html>
